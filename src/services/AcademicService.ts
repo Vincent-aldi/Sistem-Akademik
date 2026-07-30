@@ -3,18 +3,6 @@ import { INotifier } from "../interfaces/INotifier";
 import { Student } from "../models/Student";
 import { TranscriptService } from "./TranscriptService";
 
-/**
- * AcademicService adalah pengganti class "AcademicSystem" lama.
- *
- * Bedanya dengan versi awal:
- * - Tidak lagi mengerjakan semua hal sendiri (SRP tetap terjaga karena
- *   tugasnya hanya mengorkestrasi/menghubungkan use case akademik).
- * - Semua dependency (repository, notifier, transcript service) di-INJECT
- *   lewat constructor dalam bentuk INTERFACE, bukan class konkret (DIP).
- *   Artinya AcademicService tidak tahu dan tidak peduli apakah data
- *   disimpan di in-memory Map, MySQL, atau MongoDB; begitu juga tidak
- *   peduli notifikasi lewat Email atau WhatsApp.
- */
 export class AcademicService {
   private repository: IStudentRepository;
   private notifier: INotifier;
@@ -62,7 +50,6 @@ export class AcademicService {
     student.tambahNilai({ mataKuliah, sks, nilai });
   }
 
-  /** Dipakai oleh CLI/Web UI untuk menampilkan daftar mahasiswa (DTO, bukan object Student langsung). */
   getSemuaMahasiswa() {
     return this.repository.findAll().map((s) => ({
       nim: s.nim,
@@ -73,7 +60,6 @@ export class AcademicService {
     }));
   }
 
-  /** Dipakai oleh CLI/Web UI untuk menampilkan detail satu mahasiswa. */
   getMahasiswa(nim: string) {
     const student = this.getMahasiswaOrThrow(nim);
     return {

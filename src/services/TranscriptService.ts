@@ -1,12 +1,6 @@
 import { Student } from "../models/Student";
 import { ITranscriptExporter } from "../interfaces/ITranscriptExporter";
 
-/**
- * SRP: hanya menangani presentasi transkrip (cetak ke layar & export).
- * DIP: bergantung pada abstraksi ITranscriptExporter, bukan pada
- * implementasi PdfTranscriptExporter secara langsung. Exporter
- * di-inject lewat constructor.
- */
 export class TranscriptService {
   private exporter: ITranscriptExporter;
 
