@@ -147,16 +147,6 @@ public/
 
 ---
 
-# 📚 Dokumentasi
-
-Penjelasan mengenai desain sistem, implementasi prinsip **SOLID**, diagram, serta pembahasan program dapat dilihat pada:
-
-**`Laporan_UAS_PBO.pdf`**
-
-Bagian **2. Desain Baru**.
-
----
-
 # 🛠️ Teknologi yang Digunakan
 
 - TypeScript
