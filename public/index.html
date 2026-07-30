@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sistem Akademik — Dashboard</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar__brand">
+      <span class="topbar__seal">SA</span>
+      <div>
+        <h1>Sistem Akademik</h1>
+        <p>Registrasi &amp; Transkrip Mahasiswa</p>
+      </div>
+    </div>
+    <div class="notifier-switch">
+      <span>Channel notifikasi</span>
+      <div class="toggle" id="notifierToggle">
+        <button class="toggle__opt is-active" data-channel="email">Email</button>
+        <button class="toggle__opt" data-channel="whatsapp">WhatsApp</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <section class="card form-card">
+      <h2>Registrasi Mahasiswa Baru</h2>
+      <form id="formTambah" class="stacked-form">
+        <label>NIM <input type="text" name="nim" required placeholder="Masukan NIM" /></label>
+        <label>Nama <input type="text" name="nama" required placeholder="Masukan Nama" /></label>
+        <label>Jurusan <input type="text" name="jurusan" required placeholder="Masukan Jurusan" /></label>
+        <button type="submit" class="btn btn--primary">Daftarkan Mahasiswa</button>
+      </form>
+
+      <h2 class="mt">Log Notifikasi &amp; Sistem</h2>
+      <ul id="logList" class="log-list">
+        <li class="log-list__empty">Belum ada aktivitas.</li>
+      </ul>
+    </section>
+
+    <section class="card table-card">
+      <h2>Daftar Mahasiswa Terdaftar</h2>
+      <div class="table-wrap">
+        <table id="tabelMahasiswa">
+          <thead>
+            <tr>
+              <th>NIM</th>
+              <th>Nama</th>
+              <th>Jurusan</th>
+              <th>IPK</th>
+              <th class="col-aksi">Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tbodyMahasiswa">
+            <tr><td colspan="5" class="empty-row">Belum ada mahasiswa terdaftar.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Panel detail / tambah nilai / transkrip untuk satu mahasiswa -->
+  <div class="overlay" id="overlay">
+    <div class="panel">
+      <button class="panel__close" id="panelClose">&times;</button>
+      <h2 id="panelTitle">Detail Mahasiswa</h2>
+      <div id="panelBody"></div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "academic-system",
+  "version": "1.0.0",
+  "description": "Refactoring Sistem Akademik berdasarkan prinsip SOLID (UAS PBO - DT193)",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node src/index.ts",
+    "cli": "ts-node src/cli.ts",
+    "server": "ts-node src/server.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "ts-node": "^10.9.0",
+    "@types/node": "^20.11.0"
+  }
+}
